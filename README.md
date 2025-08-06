@@ -1,78 +1,104 @@
-Ferman - Akıllı Asistan
-Ferman, Google'ın Gemini Pro modelini kullanarak hızlı ve etkili içerikler üreten, masaüstü tabanlı bir akıllı asistandır. Uygulama, ürün açıklamaları oluşturmanıza ve YouTube videolarını detaylı teknik raporlar halinde özetlemenize yardımcı olur.
+# Ferman - Akıllı Asistan
 
-Özellikler
-Çok Dilli Ürün Açıklaması: Ürün adı ve özelliklerini girerek SEO odaklı, istediğiniz dilde ürün açıklamaları ve pazarlama püf noktaları oluşturabilirsiniz.
+**Ferman**, Google'ın **Gemini Pro** modelini kullanarak hızlı ve etkili içerikler üreten masaüstü tabanlı bir akıllı asistandır.
+Bu uygulama, ürün açıklamaları oluşturmanıza ve YouTube videolarını teknik raporlar şeklinde özetlemenize yardımcı olur.
 
-İleri Seviye Video Analizi: YouTube video transkriptlerini çekerek, basit bir özetin ötesinde; teknik detaylar, formüller ve ileri seviye bilgiler içeren kapsamlı raporlar elde edebilirsiniz.
+---
 
-Kullanımı Kolay Arayüz: İki ana sekmeden oluşan sade ve anlaşılır bir arayüze sahiptir.
+## Özellikler
 
-Çıktı Kaydetme: Oluşturulan özetleri tek bir metin dosyasına kolayca kaydedebilirsiniz.
+### Çok Dilli Ürün Açıklaması
 
-Kurulum
-Ferman uygulamasını çalıştırmak için gerekli adımlar aşağıda sıralanmıştır.
+* Ürün adı ve temel özellikleri girerek, SEO odaklı ve çok dilli ürün açıklamaları oluşturabilirsiniz.
+* Pazarlama için özel dil kalıpları ve ipuçları içerir.
 
-1. Gerekli Kütüphaneler
+### İleri Seviye Video Analizi
 
-Projeyi çalıştırmadan önce, requirements.txt dosyasındaki kütüphaneleri kurmanız gerekir.
+* YouTube video transkriptlerini çeker.
+* Basit özetin ötesinde, teknik detaylar, formüller ve ileri düzey bilgiler içeren kapsamlı analizler sunar.
 
-Bash
+### Kullanımı Kolay Arayüz
+
+* Sade, anlaşılır, iki ana sekmeden oluşan bir kullanıcı arayüzüne sahiptir.
+
+### Çıktı Kaydetme
+
+* Üretilen açıklama veya özetler `.txt` dosyasına kolayca kaydedilebilir.
+
+---
+
+## ⚙️ Kurulum
+
+### 1. Gerekli Kütüphaneler
+
+```bash
 pip install -r requirements.txt
-2. Google Gemini API Anahtarı
+```
 
-Uygulama, içerik üretimi için Google'ın Gemini API'sini kullanır. Bir API anahtarı edinmek için şu adımları izleyin:
+### 2. Google Gemini API Anahtarı
 
-Google AI Studio adresine gidin.
+1. [Google AI Studio](https://makersuite.google.com/app) adresine gidin.
+2. “Create API key” butonuna tıklayın.
+3. Proje klasörünüzün kök dizininde `.env` adlı bir dosya oluşturun.
+4. Aşağıdaki satırı ekleyin:
 
-"Create API key" butonuna tıklayarak yeni bir anahtar oluşturun.
-
-Projenizin kök dizininde .env adında yeni bir dosya oluşturun.
-
-Oluşturduğunuz anahtarı aşağıdaki gibi .env dosyasına ekleyin:
-
+```env
 GOOGLE_API_KEY="AIzaSy...sizin-anahtarınız"
-3. ChromeDriver Kurulumu
+```
 
-YouTube transkriptlerini çekmek için Selenium WebDriver ve ChromeDriver gereklidir. Proje, webdriver-manager kütüphanesi sayesinde bu sürücüyü otomatik olarak kurar. Ek bir işlem yapmanıza gerek yoktur.
+### 3. ChromeDriver ve Selenium
 
-Kullanım
-Kurulumu tamamladıktan sonra, projenin ana dizininde bulunan main.py dosyasını çalıştırın.
+YouTube transkriptlerini çekmek için **Selenium** ve **ChromeDriver** kullanılır.
 
-Bash
+---
+
+## 💻 Kullanım
+
+### 🔸 Uygulamayı Başlatmak
+
+```bash
 python main.py
-Sekme 1: Ürün Açıklaması
+```
 
-Ürün Adı alanına ürününüzün adını girin.
+### 📟️ Sekme 1: Ürün Açıklaması
 
-Ana Özellikleri alanına, her satıra bir özellik gelecek şekilde ana özellikleri yazın.
+1. **Ürün Adı** alanına ürününüzün adını girin.
+2. **Ana Özellikler** kısmına her satıra bir özellik yazın.
+3. **Açıklama Dili** listesinden dil seçin.
+4. “Açıklama Oluştur” butonuna basın.
 
-Açıklama Dili menüsünden istediğiniz dili seçin.
+### 🎮 Sekme 2: YouTube Video Özetleyici
 
-Açıklama Oluştur butonuna tıklayarak açıklamayı oluşturun.
+1. **YouTube URL** alanına videonun bağlantısını girin.
+2. **Özet Dili** listesinden dil seçin.
+3. “Videoyu Özetle” butonuna tıklayın.
+4. Oluşturulan özet beğenildiyse, “Sonucu Kaydet” butonu ile `youtube_ozetleri.txt` dosyasına ekleyebilirsiniz.
 
-Sekme 2: Video Özetleyici
+---
 
-YouTube URL'si alanına özetlemek istediğiniz videonun bağlantısını yapıştırın.
+## 🗂️ Dosya Yapısı
 
-Özet Dili menüsünden özetin hangi dilde oluşturulacağını seçin.
-
-Videoyu Özetle butonuna tıklayarak transkriptin çekilmesini ve analiz edilmesini başlatın.
-
-Oluşturulan özeti beğenirseniz, Sonucu Kaydet butonu ile youtube_ozetleri.txt dosyasına ekleyebilirsiniz.
-
-Dosya Yapısı
-Projenin temiz ve modüler bir yapıda olması için dosya yapısı aşağıdaki gibi düzenlenmiştir:
-
+```bash
 /Ferman
 ├── gui/
 │   └── main_window.py      # Arayüz tasarımını ve bileşenlerini içerir.
 ├── modules/
-│   ├── llm_handler.py      # Gemini API ile iletişim kurarak içerik üretir.
-│   └── web_scraper.py      # Selenium ile YouTube transkriptlerini çeker.
+│   ├── llm_handler.py      # Gemini API ile içerik üretimini yönetir.
+│   └── web_scraper.py      # YouTube transkriptlerini çeken Selenium yapısı.
 ├── config/
-│   └── settings.py         # Çevre değişkenlerini yönetir.
-├── .env                    # Gemini API anahtarını saklar.
-├── main.py                 # Ana uygulama mantığı ve GUI'yi çalıştırır.
+│   └── settings.py         # API anahtarlarını ve ortam değişkenlerini yönetir.
+├── .env                    # Google Gemini API anahtarınızı içerir.
+├── main.py                 # Uygulamanın giriş noktası.
 ├── README.md               # Proje tanıtımı ve kullanım kılavuzu.
-└── requirements.txt        # Proje için gerekli kütüphaneleri listeler.
+└── requirements.txt        # Gerekli tüm kütüphaneler listelenir.
+```
+---
+
+## 📌 Lisans
+
+Bu proje MIT Lisansı ile lisanslanmıştır.
+
+---
+
+**Fermân ile üretkenliğinizi artırın, içeriklerinizi zeka ile güçlendirin.**
+💬 Sorularınız için: namik.can@hotmail.com
