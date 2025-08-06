@@ -96,7 +96,7 @@ python main.py
 
 ## 📌 Lisans
 
-Bu proje MIT Lisansı ile lisanslanmıştır.
+Bu proje Apache2.0 Lisansı ile lisanslanmıştır.
 
 ---
 
